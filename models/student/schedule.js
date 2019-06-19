@@ -7,16 +7,7 @@ const StudentScheduleSchema = new Schema({
   remainingLeaves: { type: Number },
   takenLeaves: { type: Number }
 });
-/*
 
-leaveDetails:[
-   { dateOfLeaves:{type:Date},
-   {reasonsOfLeaves:{type:Date}}
-   }
-  ]
-
-
-*/
 console.log('schedule model');
 // the schema is useless so far
 // we need to create a model using it

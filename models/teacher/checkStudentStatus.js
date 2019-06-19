@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // User Schema
 const checkStudentStatusSchema = new Schema({
-  studentName: { type: String }
+  studentName: { type: String, required: true }
 });
 
 // the schema is useless so far
