@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // User Schema
-console.log('in check student credits details schema');
 const StudentCreditsSchema = new Schema({
   subjectCode: { type: Number },
   subjectName: { type: String },
@@ -9,7 +8,6 @@ const StudentCreditsSchema = new Schema({
   grade: { type: String }
 });
 
-console.log('credits model');
 // the schema is useless so far
 // we need to create a model using it
 const StudentCredits = mongoose.model('student_Credits', StudentCreditsSchema);

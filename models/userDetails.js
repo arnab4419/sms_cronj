@@ -9,7 +9,6 @@ const UserSchema = new Schema({
   phoneNo: { type: Number }
 });
 
-console.log('user details model');
 // the schema is useless so far
 // we need to create a model using it
 const User = mongoose.model('user_details', UserSchema);

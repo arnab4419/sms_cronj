@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // User Schema
-console.log('in check leaves schema');
 const StudentLeavesSchema = new Schema({
   totalLeaves: { type: Number },
   remainingLeaves: { type: Number },
@@ -14,7 +13,6 @@ const StudentLeavesSchema = new Schema({
   ]
 });
 
-console.log('leaves model');
 // the schema is useless so far
 // we need to create a model using it
 const StudentLeaves = mongoose.model('student_Leaves', StudentLeavesSchema);
