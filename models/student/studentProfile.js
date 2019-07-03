@@ -13,7 +13,9 @@ const StudentProfileSchema = new Schema({
   birthDate: { type: date },
   nationality: { type: String },
   currentAddress: { type: String },
-  permenentAddress: { type: String }
+  permenentAddress: { type: String },
+  attendenceFile: { type: String },
+  resultFile: { type: String }
 });
 // the schema is useless so far
 // we need to create a model using it
