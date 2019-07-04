@@ -1,16 +1,27 @@
 const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const { ApolloServer } = require('apollo-server-express');
 
-// mongoose.connect('mongodb://localhost/student_management_system');
-// const db = mongoose.connection;
+const { resolvers } = require('./graphql/resolver');
+const { typeDefs } = require('./graphql/schema');
+// const typeDefs = gql`${fs.readFileSync(__dirname.concat('/graphql/schema.graphql'), 'utf8')}`;
 
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function callback() {
-//   console.log('data base connection');
-// });
+const PORT = process.env.PORT || 5000;
 
-app.listen(4000, function() {
-  console.log('listing the 4000 port');
-});
+const app = express();
+app.use(cors());
+
+const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app, path: '/graphql' });
+
+mongoose
+  .connect('mongodb://localhost/student_management_system', {
+    useNewUrlParser: true
+  })
+  .then((response) => {
+    console.log('Database connected');
+    app.listen(PORT, () => {
+      console.log(`Server started on PORT: ${PORT}`);
+    });
+  });
